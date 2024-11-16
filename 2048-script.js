@@ -69,6 +69,7 @@ function moveLeft() {
         gameGrid[i] = mergeRow(gameGrid[i]);
     }
     spawnNumber();
+    updateGrid();  // Ensure the grid is updated after moving left
 }
 
 function moveRight() {
@@ -76,6 +77,7 @@ function moveRight() {
         gameGrid[i] = mergeRow(gameGrid[i].reverse()).reverse();
     }
     spawnNumber();
+    updateGrid();  // Ensure the grid is updated after moving right
 }
 
 function moveUp() {
@@ -87,6 +89,7 @@ function moveUp() {
         }
     }
     spawnNumber();
+    updateGrid();  // Ensure the grid is updated after moving up
 }
 
 function moveDown() {
@@ -98,9 +101,11 @@ function moveDown() {
         }
     }
     spawnNumber();
+    updateGrid();  // Ensure the grid is updated after moving down
 }
 
 document.addEventListener('keydown', (e) => {
+    console.log(`Key pressed: ${e.key}`); // Debug statement
     switch (e.key) {
         case 'ArrowUp':
             moveUp();
